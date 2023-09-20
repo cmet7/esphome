@@ -45,7 +45,7 @@ void FT63X6Touchscreen::setup() {
 
   // Get touch resolution
   this->x_resolution_ = 320;
-  this->y_resolution_ = 480;
+  this->y_resolution_ = 280;
 }
 
 void FT63X6Touchscreen::loop() {
@@ -97,7 +97,7 @@ void FT63X6Touchscreen::check_touch_() {
   ESP_LOGV(TAG, "Touch count: %d", touch_count);
 
   uint16_t w = this->display_->get_width();
-  uint16_t h = this->display_->get_height();
+  uint16_t h = this->display_->get_height() + 40;
   auto rotation = static_cast<TouchRotation>(this->display_->get_rotation());
   uint16_t x_resolution, y_resolution;
     switch (rotation) {
